@@ -11,12 +11,11 @@ class SongList extends React.Component {
   }
 
   deleteSong(id) {
-    this.props.mutate({
-      variables: {
-        id
-      },
-      refetchQueries: [{ query: fetchSongs }]
-    });
+    this.props
+      .mutate({
+        variables: { id }
+      })
+      .then(() => this.props.data.refetch());
   }
 
   renderSongs() {
