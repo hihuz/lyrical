@@ -3,8 +3,10 @@ import React from "react";
 class LyricList extends React.Component {
   render() {
     return (
-      <ul>
-        {this.props.lyrics.map(lyric => <li key={lyric.id}>{lyric.content}</li>)}
+      <ul className="collection">
+        {this.props.lyrics.map(lyric =>
+          <li key={lyric.id} className="collection-item">{lyric.content}</li>
+        )}
       </ul>
     );
   }
