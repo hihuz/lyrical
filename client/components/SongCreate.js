@@ -19,7 +19,7 @@ class SongCreate extends React.Component {
 
   submitForm(e) {
     e.preventDefault();
-
+    // check why i need to refetch here
     this.props
       .mutate({
         variables: {

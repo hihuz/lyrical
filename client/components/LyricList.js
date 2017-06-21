@@ -10,20 +10,19 @@ class LyricList extends React.Component {
   }
 
   likeLyric(id) {
-    console.log(id);
-    // this.props
-    //   .mutate({
-    //     variables: { id }
-    //   })
+    this.props.mutate({ variables: { id } });
   }
 
   render() {
     return (
       <ul className="collection">
-        {this.props.lyrics.map(({ id, content }) =>
+        {this.props.lyrics.map(({ id, content, likes }) =>
           <li key={id} className="collection-item">
             {content}
-            <i className="material-icons" onClick={() => this.likeLyric(id)}>thumb_up</i>
+            <div className="likes">
+              <i className="material-icons" onClick={() => this.likeLyric(id)}>thumb_up</i>
+              {likes}
+            </div>
           </li>
         )}
       </ul>
