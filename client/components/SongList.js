@@ -21,7 +21,7 @@ class SongList extends React.Component {
   renderSongs() {
     return this.props.data.songs.map(({ id, title }) =>
       <li key={id} className="collection-item">
-        {title}
+        <Link to={`songs/${id}`}>{title}</Link>
         <i className="material-icons" onClick={() => this.deleteSong(id)}>delete</i>
       </li>
     );
@@ -32,7 +32,7 @@ class SongList extends React.Component {
       return <div>FETCHING DATA DUDE...</div>;
     }
     return (
-      <div>
+      <div className="container">
         <ul className="collection">
           {this.renderSongs()}
         </ul>

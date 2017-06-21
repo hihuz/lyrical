@@ -32,7 +32,7 @@ class SongCreate extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <Link to="/">Back</Link>
         <h3>Create a New Song</h3>
         <form onSubmit={this.submitForm}>
