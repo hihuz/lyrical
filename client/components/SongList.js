@@ -11,11 +11,9 @@ class SongList extends React.Component {
   }
 
   deleteSong(id) {
-    this.props
-      .mutate({
-        variables: { id }
-      })
-      .then(() => this.props.data.refetch());
+    this.props.mutate({
+      variables: { id }
+    });
   }
 
   renderSongs() {
