@@ -9,8 +9,18 @@ class LyricList extends React.Component {
     this.likeLyric = this.likeLyric.bind(this);
   }
 
-  likeLyric(id) {
-    this.props.mutate({ variables: { id } });
+  likeLyric(id, likes) {
+    this.props.mutate({
+      variables: { id },
+      optimisticResponse: {
+        __typename: "Mutation",
+        likeLyric: {
+          id,
+          __typename: "LyricType",
+          likes: likes + 1
+        }
+      }
+    });
   }
 
   render() {
@@ -20,7 +30,7 @@ class LyricList extends React.Component {
           <li key={id} className="collection-item">
             {content}
             <div className="likes">
-              <i className="material-icons" onClick={() => this.likeLyric(id)}>thumb_up</i>
+              <i className="material-icons" onClick={() => this.likeLyric(id, likes)}>thumb_up</i>
               {likes}
             </div>
           </li>
