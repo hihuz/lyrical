@@ -7,6 +7,7 @@ const addLyric = gql`
       lyrics {
         id
         content
+        likes
       }
     }
   }
